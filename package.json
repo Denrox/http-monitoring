@@ -1,0 +1,14 @@
+{
+  "name": "http-monitoring",
+  "version": "0.1.0",
+  "description": "Tool for automatically requesting resources from the config file and verifying status codes, headers and response body with expectations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Denis Bashkatov",
+  "license": "MIT",
+  "dependencies": {
+    "superagent": "^8.1.2"
+  }
+}
