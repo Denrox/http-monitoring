@@ -9,6 +9,12 @@ This tool can be run as a cron task.
 * npm install
 * node index.js --config=./config-example/config.json
 
+## Installation (Docker)
+* git clone git@github.com:Denrox/http-monitoring.git
+* cd http-monitoring
+* docker build -t http-monitoring ./
+* docker run -v ./config-example/config.json:/app/config.json http-monitoring
+
 ## Config file explanation
 ```
 {
@@ -28,3 +34,7 @@ This tool can be run as a cron task.
   ]
 }
 ```
+
+## How to Get telegram Chat ID?
+* curl https://api.telegram.org/bot<tocken>/getUpdates
+* Look for path "chat.id" in response
