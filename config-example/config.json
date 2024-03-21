@@ -1,0 +1,106 @@
+{
+  "resources": [
+    {
+      "url": "https://git.projery.com",
+      "redirects": 0,
+      "method": "GET",
+      "expect": {
+        "status": 401
+      }
+    },
+    {
+      "url": "https://www.git.projery.com",
+      "redirects": 0,
+      "method": "GET",
+      "expect": {
+        "status": 301,
+        "headers": { "Location": "https://git.projery.com/" }
+      }
+    },
+    {
+      "url": "http://www.git.projery.com",
+      "redirects": 0,
+      "method": "GET",
+      "expect": {
+        "status": 301,
+        "headers": { "Location": "https://git.projery.com/" }
+      }
+    },
+    {
+      "url": "http://www.git.projery.com",
+      "redirects": 3,
+      "method": "GET",
+      "expect": {
+        "status": 401
+      }
+    },
+    {
+      "url": "https://npm.projery.com",
+      "redirects": 0,
+      "method": "GET",
+      "expect": {
+        "status": 200
+      }
+    },
+    {
+      "url": "https://www.npm.projery.com",
+      "redirects": 0,
+      "method": "GET",
+      "expect": {
+        "status": 301,
+        "headers": { "Location": "https://npm.projery.com/" }
+      }
+    },
+    {
+      "url": "http://www.npm.projery.com",
+      "redirects": 0,
+      "method": "GET",
+      "expect": {
+        "status": 301,
+        "headers": { "Location": "https://npm.projery.com/" }
+      }
+    },
+    {
+      "url": "http://www.npm.projery.com",
+      "redirects": 3,
+      "method": "GET",
+      "expect": {
+        "status": 200
+      }
+    },
+    {
+      "url": "https://reg.projery.com",
+      "redirects": 0,
+      "method": "GET",
+      "expect": {
+        "status": 401
+      }
+    },
+    {
+      "url": "https://www.reg.projery.com",
+      "redirects": 0,
+      "method": "GET",
+      "expect": {
+        "status": 301,
+        "headers": { "Location": "https://reg.projery.com/" }
+      }
+    },
+    {
+      "url": "http://reg.projery.com",
+      "redirects": 0,
+      "method": "GET",
+      "expect": {
+        "status": 301,
+        "headers": { "Location": "https://reg.projery.com/" }
+      }
+    },
+    {
+      "url": "http://www.reg.projery.com",
+      "redirects": 3,
+      "method": "GET",
+      "expect": {
+        "status": 401
+      }
+    }
+  ]
+}
