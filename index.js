@@ -23,6 +23,8 @@ const fetchResource = async (resource) => {
               }
             }
             resolve(`Fetched ${resource.url} with status code ${rawRes.statusCode}`);
+          } else if (resource.expect.body && rawRes.text !== resource.expect.body) {
+            reject(`Body does not match for ${resource.url}, expected ${resource.expect.body} but got ${rawRes.text}`);
           } else {
             resolve(`Fetched ${resource.url} with status code ${rawRes.statusCode}`);
           }
@@ -79,6 +81,25 @@ const configContents = readFileSync(agruments.config, 'utf8');
         }
       };
       console.log(message);
+      if (config.telegramKey && config.chatId && message) {
+        try {
+          const telegramKey = config.telegramKey;
+          const chatId = config.chatId;
+          const formattedMessage = message.replace(/\u2705/g, '✅').replace(/\u2717/g, '❌');
+
+          const url = `https://api.telegram.org/bot${telegramKey}/sendMessage?chat_id=${chatId}`;
+          superagent
+              .post(url)
+              .send({text: formattedMessage})
+              .end((err) => {
+                if (err) {
+                  console.error('Failed to send message to telegram');
+                }
+              });
+        } catch (e) {
+          console.error('Failed to send message to telegram');
+        }
+      }
     } else {
       throw new Error('Config file is invalid');
     }

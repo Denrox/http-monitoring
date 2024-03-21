@@ -1,105 +1,29 @@
 {
+  "chatId": "123362312",
+  "telegramKey": "123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11",
   "resources": [
     {
-      "url": "https://git.projery.com",
+      "url": "https://sample.com",
       "redirects": 0,
       "method": "GET",
       "expect": {
-        "status": 401
+        "status": 302
       }
     },
     {
-      "url": "https://www.git.projery.com",
+      "url": "https://www.sample.com",
       "redirects": 0,
       "method": "GET",
       "expect": {
-        "status": 301,
-        "headers": { "Location": "https://git.projery.com/" }
+        "status": 302,
+        "headers": { "Location": "https://www.squadhelp.com/name/Sample?source=direct" }
       }
     },
     {
-      "url": "http://www.git.projery.com",
-      "redirects": 0,
-      "method": "GET",
+      "url": "https://sample.com",
+      "method": "POST",
       "expect": {
-        "status": 301,
-        "headers": { "Location": "https://git.projery.com/" }
-      }
-    },
-    {
-      "url": "http://www.git.projery.com",
-      "redirects": 3,
-      "method": "GET",
-      "expect": {
-        "status": 401
-      }
-    },
-    {
-      "url": "https://npm.projery.com",
-      "redirects": 0,
-      "method": "GET",
-      "expect": {
-        "status": 200
-      }
-    },
-    {
-      "url": "https://www.npm.projery.com",
-      "redirects": 0,
-      "method": "GET",
-      "expect": {
-        "status": 301,
-        "headers": { "Location": "https://npm.projery.com/" }
-      }
-    },
-    {
-      "url": "http://www.npm.projery.com",
-      "redirects": 0,
-      "method": "GET",
-      "expect": {
-        "status": 301,
-        "headers": { "Location": "https://npm.projery.com/" }
-      }
-    },
-    {
-      "url": "http://www.npm.projery.com",
-      "redirects": 3,
-      "method": "GET",
-      "expect": {
-        "status": 200
-      }
-    },
-    {
-      "url": "https://reg.projery.com",
-      "redirects": 0,
-      "method": "GET",
-      "expect": {
-        "status": 401
-      }
-    },
-    {
-      "url": "https://www.reg.projery.com",
-      "redirects": 0,
-      "method": "GET",
-      "expect": {
-        "status": 301,
-        "headers": { "Location": "https://reg.projery.com/" }
-      }
-    },
-    {
-      "url": "http://reg.projery.com",
-      "redirects": 0,
-      "method": "GET",
-      "expect": {
-        "status": 301,
-        "headers": { "Location": "https://reg.projery.com/" }
-      }
-    },
-    {
-      "url": "http://www.reg.projery.com",
-      "redirects": 3,
-      "method": "GET",
-      "expect": {
-        "status": 401
+        "body": "Test"
       }
     }
   ]
