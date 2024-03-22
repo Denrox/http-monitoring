@@ -1,5 +1,6 @@
 const {readFileSync} = require('fs');
 const superagent = require('superagent');
+const configSchema = require('./schema/config.schema');
 
 const fetchResource = async (resource) => {
   const p = new Promise((resolve, reject) => {
@@ -68,7 +69,8 @@ const configContents = readFileSync(agruments.config, 'utf8');
 (async () => {
   try {
     const config = JSON.parse(configContents);
-    if (config.resources && config.resources.length) {
+    try {
+      await configSchema.validate(config, {strict: true});
       const resources = config.resources;
       let message = '';
       for (let i = 0; i < resources.length; i++) {
@@ -100,8 +102,8 @@ const configContents = readFileSync(agruments.config, 'utf8');
           console.error('Failed to send message to telegram');
         }
       }
-    } else {
-      throw new Error('Config file is invalid');
+    } catch (e) {
+      console.error(e.message);
     }
   } catch (e) {
     throw new Error('Config file is invalid');
